@@ -21,8 +21,14 @@ import androidx.compose.material3.TextField
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+
+
 
 
 class MainActivity : ComponentActivity() {
@@ -98,6 +104,7 @@ fun MyTextField(modifier: Modifier = Modifier) {
     }
 
 }
+
 @Preview(showBackground = true)
 @Composable
 fun MyTextFieldPreview() {
