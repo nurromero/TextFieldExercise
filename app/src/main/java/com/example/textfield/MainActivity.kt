@@ -19,6 +19,7 @@ import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.TextField
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -45,6 +46,7 @@ fun MyTextField(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var message by remember { mutableStateOf("") }
+    var showChip by remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
@@ -76,6 +78,7 @@ fun MyTextField(modifier: Modifier = Modifier) {
 
         Button(onClick = {
             message = "Hey $text"
+            showChip = true
         },
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -83,8 +86,14 @@ fun MyTextField(modifier: Modifier = Modifier) {
         }
         Spacer(modifier = Modifier.height(8.dp))
 
-        Text(text = message)
+        if (showChip) {
+            AssistChip(
+                onClick = { showChip = false },
+                label = { Text("Confirmed login") },
+            )
+        }
 
+        Text(text = message)
 
     }
 
